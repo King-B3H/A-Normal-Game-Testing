@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+    <title>A Normal Game</title>
+    <link rel="stylesheet" href="why.css"/>
+    <link rel="icon" href="favicon.ico">
+    <body>
+        <div id="menuUI">
+            <button class="tabButton" id="mainTabButton" onclick="changeTab('mainTab')"><image src="home.png" style="width:30px;height:30px;">Main</image></button>
+            <button class="tabButton" id="upgradeTabButton" onclick="changeTab('upgradesTab')"><image src="upgrades.png" style="width:30px;height:30px;">Upgrades</image></button>
+            <button class="tabButton" id="settingsTabButton" onclick="changeTab('settingsTab')"><image src="settings.png" style="width:30px;height:30px;filter:brightness(150%)">Settings</image></button>
+            <button class="tabButton" id="infoTabButton" onclick="changeTab('infoTab')"><image src="info.png" style="width:30px;height:30px;">Information</image></button>
+        </div>
+
+        <div id="mainTab">
+            <div class="rightMain">
+            <h1>This is a normal game do not worry</h1>
+            <h2>Created by: King_B3H</h2>
+            <h3 style="color:green;">Current endgame: 10 Universes.</h3>
+            <p style="font-weight:bold;">You have been playing for: <p>
+            <span id="dayDisplay"></span>
+            <span id="hourDisplay"></span>
+            <span id="minuteDisplay"></span>
+            <span id="secondDisplay"></span>
+            <br>
+            <br>
+            <div id="usernameBar" onclick="getUserName()"><span id="userName"></span>'s Conquest</div>
+            <br>
+            <button id="test" onclick="hide()">Click to hide me if you're mean >:C !</button>
+            <br>
+            <div id="bonuses">
+                    <li>Town Multi: x 
+                    <li>City Multi: <span id="city_h_multi"></span>x 
+                    <li>State Multi: <span id="state_h_multi"></span>x 
+                    <li>Country Multi: <span id="country_h_multi"></span>x 
+                    <li>Continent Multi: <span id="continent_h_multi"></span>x 
+                    <li>Planet Multi: <span id="planet_h_multi"></span>x <br>
+                    <li>Solarsytsem Multi: <span id="solarSystem_h_multi"></span>x <br>
+                    <li>Universe Multi: <span id="universe_h_multi"></span>x <br>
+                    <li><b>Total Multi: <span id="totalMulti"></span>x</b></ul>
+            </div>
+
+            </div>
+
+            <div class="leftMain">
+                <div class="generate">
+                    <div id="human_generate" onclick="hoomanClick()">Click For Hooman<br>
+                    <span id="human"> </span> Hoomans</div>
+                    <div id="generation_divide"></div>
+                    <div id="house_generate" onclick="condense('house')">Condense 20 Hoomans for a House, where they go is a mystery...<br>
+                    <span id="house"> </span> Houses</div>
+                    <div id="generation_divide"></div>
+                
+                    <div id="town_generate" onclick="condense('town')">Condense 50 Houses for a Town, where they go is a mystery...<br>
+                    <span id="town"> </span> Towns</div>
+                    <div id="generation_divide"></div>
+                
+                    <div id="city_generate" onclick="condense('city')">Condense 150 Towns for a City, where they go is a mystery...<br>
+                    <span id="city"> </span> Cities</div>
+                    <div id="generation_divide"></div>
+                
+                    <div id="state_generate" onclick="condense('state')">Condense 350 Cities for a State. Now we're rolling.<br>
+                    <span id="state"> </span> States</div>
+                    <div id="generation_divide"></div>
+                
+                    <div id="country_generate" onclick="condense('country')">Condense 600 States for a Country. Something's off now...<br>
+                    <span id="country"> </span> Countries</div>
+                    <div id="generation_divide"></div>
+                
+                    <div id="continent_generate" onclick="condense('continent')">Condense 900 Countries for a Continent. This game is very innacuate...<br>
+                    <span id="continent"> </span> Continents</div>
+                    <div id="generation_divide"></div>
+                
+                    <div id="planet_generate" onclick="condense('planet')">Condense 1.25k Continents for a Planet. This doesn't seem right...<br>
+                    <span id="planet"> </span> Planets</div>   
+                    <div id="generation_divide"></div>
+                    
+                    <div id="solarSystem_generate" onclick="condense('solarSystem')">Condense 3.5k Planets for a Solar System. You gain the powers of the cosmos....<br>
+                    <span id="solarSystem"> </span> Solar Systems</div> 
+                    <div id="generation_divide"></div>
+
+                    <div id="universe_generate" onclick="condense('universe')">Condense 10k Solar Systems for a Universe. <br>The fate of the universe is at your fingertips...<br>
+                    <span id="universe"> </span> Universes</div> 
+                </div>
+            </div>
+        </div>
+
+        <div id="upgradesTab">
+
+            <div id="leftUpgrades">
+                <div>
+                    <table>
+                        <tr class="upgradeCol1">
+                    <td><button onclick="return upgrades.purchase(0, human)" id="upgrade1" class = "upgrade"><b>Simple Multis</b> <br>Multiply human gain by 2<br><span id="upgrade1Text"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(1, house)" id="upgrade2" class = "upgrade"><b>Hooman Spawning:</b> <br>Generate Hoomans at a base rate of round(1*Total Multi/2) every second.<br><span id="upgrade2Text"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(2, house)" id="upgrade3" class = "upgrade"><b>Expanding horizons:</b> <br>ez.<br><span id="upgrade3Text"></span></button></td>
+                        </tr>
+                        <tr class="upgradeCol2">
+                    <td><button onclick="return upgrades.purchase(0, human)" id="upgrade1" class = "upgrade"><b>Simple Multis</b> <br>Multiply human gain by 2<br><span id="upgrade1Text"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(1, house)" id="upgrade2" class = "upgrade"><b>Hooman Spawning:</b> <br>Generate Hoomans at a base rate of round(1*Total Multi/2) every second.<br><span id="upgrade2Text"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(2, house)" id="upgrade3" class = "upgrade"><b>Expanding horizons:</b> <br>ez.<br><span id="upgrade3Text"></span></button></td>
+                        </tr>
+                        </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="infoTab">
+            <div id="rightInfo">
+            <h1>This is a normal game do not worry</h1>
+            <h2>Created by: King_B3H</h2>
+            <h3 style="color:green;">Current endgame: 10 Universes.</h3>
+            <p style="font-weight:bold;">You have been playing for: <p>
+            </div>
+        </div>
+        
+        <div id="settingsTab">
+            <div id="rightSettings">
+            <h1>Settings</h1>
+            <h2>Created by: King_B3H</h2>
+            <h3 style="color:green;">Current endgame: 10 Universes.</h3>
+            <p style="font-weight:bold;">You have been playing for: <p>
+                <div id="gameProgressButtons">
+                    <div><button onclick="saveGame()" id="saveButton">Save Game</button></div><br>
+                    <div><button onclick="resetGame()" id="resetButton">Reset Progress</button></div><br>
+                    <button id="changeLog" onclick="changelog()" style="color:black;">Changelog</button>
+                </div>
+            </div>
+        </div>
+        <img id="troll" src="./endgame.png"/>
+        <img id="theWall" src="Wall Pngs/currentWall.png" onclick="resetGame()"/>
+        <button onclick="resetGame()" id="endgameReset">Reset?</button>
+        <button onclick="continueGame()" id="continue">Continue</button>
+     </body>
+    
+</html>
+<script src="why.js">
+    </script>
+<script src="upgrades.js">
+    </script>

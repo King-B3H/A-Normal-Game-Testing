@@ -1,0 +1,308 @@
+body{
+    display:flexbox;
+    font-family:'papyrus';
+    background-color:aquamarine;
+}
+#menuUI{
+    display:block;
+    position:absolute;
+    bottom:0px;
+    width:99%;
+}
+
+.tabButton:hover{
+    filter:brightness(85%);
+}
+.tabButton{
+    user-select:none;
+    font-size:14px;
+    height:fit-content;
+    width:24.5%;
+    height:50px;
+    margin-left:10px;
+    margin-right:-10px;
+    border:7px solid black;
+}
+#mainTabButton{
+    background-image:radial-gradient(circle, blue, rgb(106, 106, 245));
+    color:white;
+    font-weight:700;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#upgradeTabButton{
+    background-image:linear-gradient(to right, green, rgb(102, 240, 111));
+    font-weight:700;
+    color:white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#settingsTabButton{
+    background-image:linear-gradient(to right, gray, white );
+    font-weight:700;
+    color:black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#infoTabButton{
+    background-image:linear-gradient(to right, gray, rgb(149, 143, 143), gray);
+    font-weight:700;
+    color:white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#mainTab{
+    display:none;
+}
+#upgradesTab{
+    display:none;
+}
+#infoTab{
+    display:none;
+}
+#settingsTab{
+    display:none;
+}
+.leftMain{
+    display:auto;
+    position:absolute;
+    right:0px;
+    top:0px;
+    text-align:center;
+}
+#leftUpgrades{
+    font-family:monospace;
+    display:auto;
+    position:absolute;
+    justify-content:center;
+    user-select:none;
+    overflow:none;
+    border:5px solid;
+    height:480px;
+    width:1000px;
+}
+.upgrade{
+    color:rgb(11, 5, 5);
+    background-color:gray;
+    font-size:15px;
+    display:block;
+    height:150px;
+    border-radius:10px;
+    margin:5px;
+    width:150px;
+    font-family:monospace;
+}
+.upgrade:hover{
+    filter:brightness(70%);
+}
+.rightMain{
+    display:auto;
+}
+#gameProgressButtons{
+    display:auto;
+    position:auto;
+}
+
+#bonuses{
+    display:auto;
+    position:absolute;
+    top:25%;
+    left:25%;
+}
+#troll{
+    display:none;
+    width:auto;
+    height:800px;
+}
+#theWall{
+    display:none;
+    width:400px;
+    height:600px;
+}
+#endgameReset{
+    display:none;
+    color:white;
+    border:7px solid black;
+    background-image:linear-gradient(to bottom right, rgb(232, 65, 65), red, rgb(232, 65, 65));
+    font-family:monospace;
+    font-size:25px;
+    font-weight:700;
+    width:150px;
+    height:100px;
+    position:absolute;
+    top:50%;
+    left:75%;
+    border-radius:50px;
+}
+#continue{
+    display:none;
+    color:white;
+    border:7px solid black;
+    background-image:linear-gradient(to bottom right, rgb(65, 232, 65), green, rgb(65, 232, 65));
+    font-family:monospace;
+    font-size:25px;
+    font-weight:700;
+    width:150px;
+    height:100px;
+    position:absolute;
+    top:50%;
+    left:55%;
+    border-radius:50px;
+}
+.generate{
+    user-select:none;
+    overflow:scroll;
+    border:5px solid;
+    border-radius:10px;
+    margin-top:5px;
+    margin-right:5px;
+    text-align:center;
+    font-weight:600;
+    width:250px;
+    height:500px;
+    scrollbar-color: black;
+    color:black;
+    font-size:20px;
+    font-family:'papyrus';
+}
+#usernameBar{
+    user-select:none;
+    font-family:'monospace';
+    height:35px;
+    font-size:15px;
+    width:250px;
+    text-align:center;
+    padding-top:17.5px;
+    background-image:radial-gradient(circle, rgb(36, 218, 36), rgb(0, 252, 0));
+    border:5px solid black;
+    border-radius:15px;
+}
+#usernameBar:hover{
+    filter:brightness(85%);
+}
+#test{
+    background-image:none;
+}
+#generation_divide{
+    height:10px;
+}
+#human_generate{
+    color:white;
+    display:auto;
+    text-align:center;
+    background-image:radial-gradient(circle, blue, red, blue);
+    background-image:url("Buildings/Human.jpeg");
+    background-size:cover;
+    
+}
+#house_generate{
+    color:white;
+    display:auto;
+    text-align:center;
+    background-image:linear-gradient(to left, orange, rgb(147, 255, 147), orange);
+    background-image:url("Buildings/House.jpeg");
+    background-size:cover;
+}
+#town_generate{
+    color:white;
+    text-align:center;
+    background-image:linear-gradient(to right, blue, red, rgb(70, 164, 70));
+    background-image:url("Buildings/Town.jpeg");
+    background-size:cover;
+}
+#city_generate{
+    color:white;
+    text-align:center; 
+    background-image:linear-gradient(to top right, yellow, black, yellow, black);
+    background-image:url("Buildings/City.jpeg");
+    background-size:cover;
+}
+#state_generate{
+    color:white;
+    text-align:center;
+    background-image:linear-gradient(to bottom left, purple, yellow, purple);
+    background-image:url("Buildings/State.jpeg");
+    background-size:cover;
+}
+#country_generate{
+    color:white;
+    text-align:center;
+    background-image:linear-gradient(to bottom right, orange, red, orange);
+    background-image:url("Buildings/Country.jpeg");
+    background-size:cover;
+}
+#continent_generate{
+    color:white;
+    text-align:center;
+    background-image:linear-gradient(blue, purple, blue);
+    background-image:url("Buildings/Continent.jpeg");
+    background-size:cover;
+}
+#planet_generate{
+    color:white;
+    text-align:center;
+    background-image:radial-gradient(circle, green, blue, green, blue);
+    background-image:url("Buildings/Planet.jpeg");
+    background-size:cover;
+}
+#solarSystem_generate{
+    color:white;
+    text-align:center;
+    background-image:radial-gradient(circle, green, blue, green, blue);
+    background-image:url("Buildings/Solarsystem.jpeg");
+    background-size:cover;
+}
+#universe_generate{
+    color:white;
+    text-align:center;
+    background-image:url("Buildings/Galaxy.jpg");
+    background-size:cover;
+}
+#saveButton{
+    user-select:none;
+    border:5px solid black;
+    border-radius:10px;
+    height:60px;
+    width:150px;
+    font-size:18px;
+    font-family:'monospace';
+    font-weight:700;
+    color:white;
+    background-color:green;
+}
+#resetButton{
+    user-select:none;
+    border:5px solid black;
+    border-radius:10px;
+    height:60px;
+    width:150px;
+    font-size:18px;
+    font-family:'monospace';
+    font-weight:700;
+    color:white;
+    background-color:red;
+}
+#changeLog{
+    user-select:none;
+    border:5px solid black;
+    border-radius:10px;
+    height:60px;
+    width:150px;
+    font-size:20px;
+    font-family:'monospace';
+    color:white;
+    font-weight:700;
+    background-color:orange;
+}
+#changeLogText{
+    color:black;
+}
+#resetButton:hover{
+    filter:brightness(85%);
+}
+#saveButton:hover{
+    filter:brightness(85%);
+}
+#changeLog:hover{
+    filter:brightness(85%);
+}
+#changeLogText:link { text-decoration: none; }
+#changeLogText:visited { text-decoration: none; }
+#changeLogText:hover { text-decoration: none; }
+#changeLogText:active { text-decoration: none; }
