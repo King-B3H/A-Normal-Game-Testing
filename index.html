@@ -16,11 +16,6 @@
             <h1>This is a normal game do not worry</h1>
             <h2>Created by: King_B3H</h2>
             <h3 style="color:green;">Current endgame: 10 Universes.</h3>
-            <p style="font-weight:bold;">You have been playing for: <p>
-            <span id="dayDisplay"></span>
-            <span id="hourDisplay"></span>
-            <span id="minuteDisplay"></span>
-            <span id="secondDisplay"></span>
             <br>
             <br>
             <div id="usernameBar" onclick="getUserName()"><span id="userName"></span>'s Conquest</div>
@@ -28,7 +23,8 @@
             <button id="test" onclick="hide()">Click to hide me if you're mean >:C !</button>
             <br>
             <div id="bonuses">
-                    <li>Town Multi: x 
+                    <li>House Multi: <span id="house_multi"></span>x 
+                    <li>Town Multi: <span id="town_h_multi"></span>x 
                     <li>City Multi: <span id="city_h_multi"></span>x 
                     <li>State Multi: <span id="state_h_multi"></span>x 
                     <li>Country Multi: <span id="country_h_multi"></span>x 
@@ -88,16 +84,19 @@
 
             <div id="leftUpgrades">
                 <div>
-                    <table>
-                        <tr class="upgradeCol1">
-                    <td><button onclick="return upgrades.purchase(0, human)" id="upgrade1" class = "upgrade"><b>Simple Multis</b> <br>Multiply human gain by 2<br><span id="upgrade1Text"></span></button></td>
-                    <td><button onclick="return upgrades.purchase(1, house)" id="upgrade2" class = "upgrade"><b>Hooman Spawning:</b> <br>Generate Hoomans at a base rate of round(1*Total Multi/2) every second.<br><span id="upgrade2Text"></span></button></td>
-                    <td><button onclick="return upgrades.purchase(2, house)" id="upgrade3" class = "upgrade"><b>Expanding horizons:</b> <br>ez.<br><span id="upgrade3Text"></span></button></td>
+                    <table class="upgrades">
+                        <tr class="upgradeRow1">
+                    <td><button onclick="return upgrades.purchase(0, human)" id="upgrade1" class = "upgrade"><b>Simple Multis</b> <br>Multiply Hooman gain by 2<br><br><br><span id="upgrade1Text" style="font-weight:bold;"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(1, house)" id="upgrade2" class = "upgrade"><b>Hooman Spawning:</b> <br>Generate Hoomans at round(Total Multi/2) per second.<br><br><br><span id="upgrade2Text" style="font-weight:bold;"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(2, house)" id="upgrade3" class = "upgrade"><b>Expanding horizons:</b> <br>Hoomans multiply Hoomans by <br><span id="upgrade3Text" style="font-weight:bold;"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(3, planet)" id="upgrade4" class = "upgrade"><b>Placeholder</b> <br>Placeholder<span id="upgrade4Text" style="font-weight:bold;"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(3, planet)" id="upgrade5" class = "upgrade"><b>Placeholder</b> <br>Placeholder<br><span id="upgrade5Text" style="font-weight:bold;"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(3, planet)" id="upgrade6" class = "upgrade"><b>Placeholder</b> <br>Placeholder<br><span id="upgrade6Text"></span></button></td>
                         </tr>
-                        <tr class="upgradeCol2">
-                    <td><button onclick="return upgrades.purchase(0, human)" id="upgrade1" class = "upgrade"><b>Simple Multis</b> <br>Multiply human gain by 2<br><span id="upgrade1Text"></span></button></td>
-                    <td><button onclick="return upgrades.purchase(1, house)" id="upgrade2" class = "upgrade"><b>Hooman Spawning:</b> <br>Generate Hoomans at a base rate of round(1*Total Multi/2) every second.<br><span id="upgrade2Text"></span></button></td>
-                    <td><button onclick="return upgrades.purchase(2, house)" id="upgrade3" class = "upgrade"><b>Expanding horizons:</b> <br>ez.<br><span id="upgrade3Text"></span></button></td>
+                        <tr class="upgradeRow2">
+                    <td><button onclick="return upgrades.purchase(3, planet)" id="upgrade7" class = "upgrade"><b>Placeholder</b> <br>Placeholder<br><span id="upgrade7Text" style="font-weight:bold;"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(3, planet)" id="upgrade8" class = "upgrade"><b>Placeholder</b> <br>Placeholder<br><span id="upgrade8Text" style="font-weight:bold;"></span></button></td>
+                    <td><button onclick="return upgrades.purchase(3, planet)" id="upgrade9" class = "upgrade"><b>Placeholder</b> <br>Placeholder<br><span id="upgrade9Text" style="font-weight:bold;"></span></button></td>
                         </tr>
                         </table>
                 </div>
@@ -106,7 +105,7 @@
 
         <div id="infoTab">
             <div id="rightInfo">
-            <h1>This is a normal game do not worry</h1>
+            <h1 id="versionDisplay">Version: 0.2: Upgrading Things</h1>
             <h2>Created by: King_B3H</h2>
             <h3 style="color:green;">Current endgame: 10 Universes.</h3>
             <p style="font-weight:bold;">You have been playing for: <p>
@@ -117,8 +116,11 @@
             <div id="rightSettings">
             <h1>Settings</h1>
             <h2>Created by: King_B3H</h2>
-            <h3 style="color:green;">Current endgame: 10 Universes.</h3>
             <p style="font-weight:bold;">You have been playing for: <p>
+            <span id="dayDisplay"></span>
+            <span id="hourDisplay"></span>
+            <span id="minuteDisplay"></span>
+            <span id="secondDisplay"></span>
                 <div id="gameProgressButtons">
                     <div><button onclick="saveGame()" id="saveButton">Save Game</button></div><br>
                     <div><button onclick="resetGame()" id="resetButton">Reset Progress</button></div><br>
