@@ -84,17 +84,15 @@ function removeCurrency(currency, cost){
   }
 }
 
-function upgradeTexts(){
-    document.getElementById("upgrade1Text").innerHTML = upgrades.bought[0] === 0 ? `Costs: 1K Hoomans` : "Bought"
-    document.getElementById("upgrade2Text").innerHTML = upgrades.bought[1] === 0 ? `Costs: ${upgrades.cost[1]} Houses` : "Bought"
-    document.getElementById("upgrade3Text").innerHTML = upgrades.bought[2] === 0 ? `Costs: ${upgrades.cost[2]} Houses` : "Bought"
-}
 function upgradeVisible(upgrade, condition, parameter, index){
-    if(condition >= parameter && upgrades.bought[index] === 0){
+    if(condition >= parameter && upgrades.bought[index] === 0 ){
         document.getElementById("upgrade" + upgrade).style.display = ""
     }
-    if(condition < parameter || upgrades.bought[index] === 1){
-        document.getElementById("upgrade" + upgrade).style.display = "none"
+    if(condition < parameter){
+      document.getElementById("upgrade" + upgrade).style.display = "none"
+    } 
+    if (upgrades.bought[index] === 1){
+        document.getElementById("upgrade" + upgrade).style.backgroundColor = "rgb(60, 190, 60)"
     }
 }
 setInterval(function(){
