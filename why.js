@@ -1,5 +1,5 @@
-var human = 0
-var house = 0
+var human = 1000
+var house = 200
 var town = 0
 var city = 0
 var state = 0
@@ -9,8 +9,8 @@ var planet = 0
 var solarSystem = 0
 var universe = 0
 
-var total_human = 0
-var total_house = 0
+var total_human = 1000
+var total_house = 200
 var total_town = 0
 var total_city = 0
 var total_state = 0
@@ -268,7 +268,6 @@ function getUserName(){
         alert("Username too long.")
         userName = prompt("What will be your username? DO IT RIGHT THIS TIME!!!!")
     }
-    
     if(userName === "King_B3H"){
         alert("That's not your name...")
         window.open(src="Goofy Images/clown_amogus.png")
@@ -401,6 +400,9 @@ setInterval(function(){
     checkEndgame()
     calculateTotalMulti()
     displayBonus()
+    displayTime()
+    displayUpdate()
+    displayUpgrades()
   }, 100)
 
   setInterval(function(){timeTick();}, 1000)//Counts time
@@ -413,6 +415,12 @@ window.onload = function(){
     if(joeClick === true){
         document.getElementById("test").style.display = "none"
     }
+}
+
+function upgradeTexts(){
+    document.getElementById("upgrade1Text").innerHTML = upgrades.bought[0] === 0 ? `Costs: 1K ez` : "Bought"
+    document.getElementById("upgrade2Text").innerHTML = upgrades.bought[1] === 0 ? `Costs: ${upgrades.cost[1]} Houses` : "Bought"
+    document.getElementById("upgrade3Text").innerHTML = upgrades.bought[2] === 0 ? `Costs: ${upgrades.cost[2]} Houses` : "Bought"
 }
 
 function timeTick(){
@@ -461,7 +469,7 @@ function checkEndgame(){
 }
 
 function displayUpdate(){
-  document.getElementById("human").innerHTML = human
+document.getElementById("human").innerHTML = human
   document.getElementById("house").innerHTML = house
   document.getElementById("town").innerHTML = town
   document.getElementById("city").innerHTML = city
@@ -473,14 +481,11 @@ function displayUpdate(){
   document.getElementById("universe").innerHTML = universe
 
   document.getElementById("userName").innerHTML = userName
-  displayBonus()
-  displayTime()
-  displayUpdate()
-  displayUpgrades()
-  multiUpdate()
+  upgradeTexts()
  
 }
 function displayBonus(){
+    multiUpdate()
     document.getElementById("house_multi").innerHTML = house_multi
     document.getElementById("town_h_multi").innerHTML = town_h_multi
     document.getElementById("city_h_multi").innerHTML = city_h_multi
@@ -504,4 +509,10 @@ function displayUpgrades(){
     upgradeVisible(1, total_human, 100, 0)
     upgradeVisible(2, total_house, 15, 1)
     upgradeVisible(3, upgrades.bought[1], 1, 2)
+    upgradeVisible(4, universe, 1000000, 3)
+    upgradeVisible(5, universe, 1000000, 3)
+    upgradeVisible(6, universe, 1000000, 3)
+    upgradeVisible(7, universe, 1000000, 3)
+    upgradeVisible(8, universe, 1000000, 3)
+    upgradeVisible(9, universe, 1000000, 3)
 }
