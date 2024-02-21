@@ -1,13 +1,13 @@
-var human = 1000
-var house = 200
-var town = 0
-var city = 0
-var state = 0
-var country = 0
-var continent = 0
-var planet = 0
-var solarSystem = 0
-var universe = 0
+var human = 1
+var house = 1
+var town = 1
+var city = 1
+var state = 1
+var country = 1
+var continent = 1
+var planet = 1
+var solarSystem = 1
+var universe = 1
 
 var total_human = 1000
 var total_house = 200
@@ -24,6 +24,7 @@ var userName = "A Random Person"
 var pastEndgame = false
 var metWall = false
 var joeClick = false
+var possibleReset = false
 
 var house_multi = 1
 var town_h_multi = 1
@@ -50,8 +51,11 @@ function hoomanClick(){
     }
 }
 function create(){
-    upgrades.bought[0] === 0 ? human += 1*totalMulti : human += 1*(totalMulti*2)
-    upgrades.sbought[0] === 0 ? total_human += 1*totalMulti : total_human += 1*(totalMulti*2)
+    var humanGain = 1*totalMulti
+    upgrades.bought[0] === 0 ? humanGain = humanGain: humanGain = humanGain*2
+    upgrades.bought[2] === 0 ? humanGain = humanGain: humanGain = humanGain*(1+Math.round(Math.log2((human+1)**1.2)))
+    human += 1*humanGain
+    total_human += 1*humanGain
     timeoutActive = 0
 }
 
@@ -161,8 +165,8 @@ function condense(building){
 
     if(building === "solarSystem"){
         if(planet >= 3500){
-            solarSystem += Math.floor(continent/3500)
-            total_solarSystem += Math.floor(continent/3500)
+            solarSystem += Math.floor(planet/3500)
+            total_solarSystem += Math.floor(planet/3500)
             planet = 0
             return building = 0;
         }
@@ -171,8 +175,8 @@ function condense(building){
 
     if(building === "universe"){
         if(solarSystem >= 10000){
-            universe += Math.floor(continent/10000)
-            total_universe += Math.floor(continent/10000)
+            universe += Math.floor(solarSystem/10000)
+            total_universe += Math.floor(solarSystem/10000)
             solarSystem = 0
             return building = 0;
         }
@@ -194,62 +198,62 @@ function condense(building){
 
 function multiUpdate(){
     if(house > 0){
-        house_multi = Math.floor(Math.log(10+house)**0.99)
+        house_multi = Math.floor(Math.log(10+house**0.99))
     }else{
         house_multi = 1
     }
 
     if(town > 0){
-        town_h_multi = Math.floor(Math.log(10+(town))**1.4)
+        town_h_multi = Math.floor(Math.log(10+(town**1.4)))
     }else{
         town_h_multi = 1
     }
 
     if(city > 0){
-        city_h_multi = Math.floor((Math.log(10+city))**1.7)
+        city_h_multi = Math.floor((Math.log(10+city**1.7)))
     }else{
         city_h_multi = 1
     }
 
     if(state > 0){
-        state_h_multi = Math.floor(Math.log(10+state)**2.05)
+        state_h_multi = Math.floor(Math.log(10+state**2.05))
     }else{
         state_h_multi = 1
     }
 
     if(country > 0){
-        country_h_multi = Math.floor(Math.log(10+country)**2.4)
+        country_h_multi = Math.floor(Math.log(10+country**2.4))
     }else{
         country_h_multi = 1
     }
         
     if(continent > 0){
-        continent_h_multi = Math.floor(Math.log(10+continent)**2.75)
+        continent_h_multi = Math.floor(Math.log(10+continent**2.75))
     }else{
         continent_h_multi = 1
     }
 
     if(planet > 0){
-        planet_h_multi = Math.floor(Math.log(10+planet)**3.1)
+        planet_h_multi = Math.floor(Math.log(10+planet**3.1))
     }else{
         planet_h_multi = 1
     }
 
-    if(planet > 0){
-        solarSystem_h_multi = Math.floor(Math.log(10+solarSystem)**3.5)
+    if(solarSystem > 0){
+        solarSystem_h_multi = Math.floor(Math.log(10+solarSystem**3.5))
     }else{
         solarSystem_h_multi = 1
     }
 
-    if(planet > 0){
-        universe_h_multi = Math.floor(Math.log(10+universe)**4)
+    if(universe > 0){
+        universe_h_multi = Math.floor(Math.log(10+universe**4))
     }else{
         universe_h_multi = 1
     }
 }
         
 function calculateTotalMulti(){
-    totalMulti = 1*(house_multi)*(town_h_multi)*(city_h_multi)*(state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi)
+    totalMulti = 1*(house_multi)*(town_h_multi)*(city_h_multi)*(state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi)*(solarSystem_h_multi)*(universe_h_multi)
 }
 
 function getUserName(){
@@ -286,6 +290,19 @@ function getUserName(){
     if(hutchersonNames.includes(userName)){
         alert("*Insert Whistle")
         window.open(src="Goofy Images/hutcherson.jpeg")
+    }
+    if(userName === "SecretTesterCode 99"){
+        human = 1e50
+        house = 1e50
+        town = 1e50
+        city = 1e50
+        state = 1e50
+        country = 1e50
+        continent = 1e50
+        planet = 1e50
+        solarSystem = 1e50
+        universe = 9
+        return userName = "A Tester"
     }
     return stringify(userName)
 }
@@ -333,6 +350,7 @@ function saveGame(){
 function resetGame(){
     if (confirm("Are you positive you wish to reset?")){
         var gameSave = {}
+        possibleReset = true
         totalMulti = 0
         saveGame()
         localStorage.setItem("gameSave", JSON.stringify(gameSave))
@@ -392,7 +410,9 @@ function changelog(){
 }
 
 setInterval(function(){
-    saveGame()
+    if(possibleReset == false){
+        saveGame()
+    }
 }, 3000)
 
 setInterval(function(){
@@ -408,7 +428,7 @@ setInterval(function(){
   setInterval(function(){timeTick();}, 1000)//Counts time
 
 window.onload = function(){
-    changeTab('upgradesTab')
+    changeTab('mainTab')
     loadGame()
     checkEndgame()
     calculateTotalMulti()
@@ -418,9 +438,9 @@ window.onload = function(){
 }
 
 function upgradeTexts(){
-    document.getElementById("upgrade1Text").innerHTML = upgrades.bought[0] === 0 ? `Costs: 1K ez` : "Bought"
+    document.getElementById("upgrade1Text").innerHTML = upgrades.bought[0] === 0 ? `Costs: 1k Hoomans` : "Bought"
     document.getElementById("upgrade2Text").innerHTML = upgrades.bought[1] === 0 ? `Costs: ${upgrades.cost[1]} Houses` : "Bought"
-    document.getElementById("upgrade3Text").innerHTML = upgrades.bought[2] === 0 ? `Costs: ${upgrades.cost[2]} Houses` : "Bought"
+    document.getElementById("upgrade3Text").innerHTML = upgrades.bought[2] === 0 ? `Costs: ${upgrades.cost[2]} Houses` : `Bought:<br> x${Math.round(Math.log2((human+1)**1.2))} Hoomans `
 }
 
 function timeTick(){
@@ -442,30 +462,28 @@ function timeTick(){
 
 
 function checkEndgame(){
-    if(planet > 99 && pastEndgame === false){
-        document.getElementById("left").style.display = "none"
-        document.getElementById("right").style.display = "none"
+    if(universe > 9 && pastEndgame === false){
+        pastEndgame === true
+        human = 0
+        house = 0
+        town = 0
+        city = 0
+        state = 0
+        country = 0
+        continent = 0
+        planet = 0
+        solarSystem = 0
+        universe = 10
+        document.getElementById("mainTab").style.display = "none"
+        document.getElementById("upgradesTab").style.display = "none"
+        document.getElementById("settingsTab").style.display = "none"
+        document.getElementById("infoTab").style.display = "none"
+        document.getElementById("menuUI").style.display = "none"
         document.getElementById("troll").style.display = "block"
-        document.getElementById("continue").style.display = "block"
+        document.getElementById("continue").style.display = "none"
         document.getElementById("endgameReset").style.display = "block"
     }
     
-    if(planet > 99 && pastEndgame === true){
-        document.getElementById("left").style.display = ""
-        document.getElementById("right").style.display = ""
-        document.getElementById("troll").style.display = "none"
-        document.getElementById("continue").style.display = "none"
-        document.getElementById("endgameReset").style.display = "none"
-    }    
-    if(totalMulti >= 1e21){
-        pastEndgame === true
-        metWall = true
-        saveGame()
-        document.getElementById("left").style.display = "none"
-        document.getElementById("right").style.display = "none"
-        document.getElementById("theWall").style.display = "block"
-    }
-
 }
 
 function displayUpdate(){

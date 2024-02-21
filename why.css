@@ -106,7 +106,7 @@ body{
     display:auto;
     position:absolute;
     top:25%;
-    left:25%;
+    left:35%;
 }
 #troll{
     display:none;
@@ -157,12 +157,20 @@ body{
     margin-right:5px;
     text-align:center;
     font-weight:600;
-    width:250px;
+    width:500px;
+    display:flex;
+    align-content:center;
+    justify-content: center;
     height:500px;
     scrollbar-color: black;
     color:black;
     font-size:20px;
     font-family:'papyrus';
+}
+#generateTable{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #usernameBar{
     user-select:none;
@@ -186,23 +194,34 @@ body{
     height:10px;
 }
 #human_generate{
-    color:white;
+    height:150px;
+    display:grid;
+    color:rgb(162, 162, 162);
+    align-items: center;
+    width:250px;
     display:auto;
     text-align:center;
     background-image:radial-gradient(circle, blue, red, blue);
-    background-image:url("Buildings/Human.jpeg");
+    background-image:url("Buildings/Human.png");
     background-size:cover;
     
 }
 #house_generate{
+    height:150px;
+    display:grid;
+    align-items: center;
+    width:250px;
     color:white;
-    display:auto;
     text-align:center;
     background-image:linear-gradient(to left, orange, rgb(147, 255, 147), orange);
-    background-image:url("Buildings/House.jpeg");
+    background-image:url("Buildings/House.png");
     background-size:cover;
 }
 #town_generate{
+    height:150px;
+    display:grid;
+    align-items: center;
+    width:250px;
     color:white;
     text-align:center;
     background-image:linear-gradient(to right, blue, red, rgb(70, 164, 70));
@@ -210,6 +229,10 @@ body{
     background-size:cover;
 }
 #city_generate{
+    height:150px;
+    display:grid;
+    align-items: center;
+    width:250px;
     color:white;
     text-align:center; 
     background-image:linear-gradient(to top right, yellow, black, yellow, black);
@@ -217,6 +240,10 @@ body{
     background-size:cover;
 }
 #state_generate{
+    height:150px;
+    display:grid;
+    align-items: center;
+    width:250px;
     color:white;
     text-align:center;
     background-image:linear-gradient(to bottom left, purple, yellow, purple);
@@ -224,6 +251,10 @@ body{
     background-size:cover;
 }
 #country_generate{
+    height:150px;
+    display:grid;
+    align-items: center;
+    width:250px;
     color:white;
     text-align:center;
     background-image:linear-gradient(to bottom right, orange, red, orange);
@@ -231,6 +262,10 @@ body{
     background-size:cover;
 }
 #continent_generate{
+    height:150px;
+    display:grid;
+    align-items: center;
+    width:250px;
     color:white;
     text-align:center;
     background-image:linear-gradient(blue, purple, blue);
@@ -238,6 +273,10 @@ body{
     background-size:cover;
 }
 #planet_generate{
+    height:150px;
+    display:grid;
+    align-items: center;
+    width:250px;
     color:white;
     text-align:center;
     background-image:radial-gradient(circle, green, blue, green, blue);
@@ -245,6 +284,10 @@ body{
     background-size:cover;
 }
 #solarSystem_generate{
+    height:150px;
+    display:grid;
+    align-items: center;
+    width:250px;
     color:white;
     text-align:center;
     background-image:radial-gradient(circle, green, blue, green, blue);
@@ -252,9 +295,13 @@ body{
     background-size:cover;
 }
 #universe_generate{
+    height:150px;
+    display:grid;
+    align-items: center;
+    width:250px;
     color:white;
     text-align:center;
-    background-image:url("Buildings/Galaxy.jpg");
+    background-image:url("Buildings/Galaxy.png");
     background-size:cover;
 }
 #saveButton{
